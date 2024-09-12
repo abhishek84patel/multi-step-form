@@ -1,0 +1,139 @@
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-step h2, h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .brand-selection, .model-selection, .variant-selection, .year-selection, .ownership-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .brand-grid, .model-grid, .variant-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  
+  .brand-item, .model-item, .variant-item, .year-item {
+    background-color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .brand-item:hover, .model-item:hover, .variant-item:hover, .year-item:hover {
+    background-color: #eee;
+  }
+  
+  .brand-item.selected, .model-item.selected, .variant-item.selected, .year-item.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .fuel-switcher, .ownership-selection {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .fuel-switcher label, .ownership-selection label {
+    cursor: pointer;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .location-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  /*upload  */
+
+/* Photo Preview Grid (2x2 layout) */
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Each upload box */
+  .upload-box {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .upload-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Remove icon styles */
+  .remove-icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown when an image is uploaded */
+  }
+  
+  
+  
+  
+  
+  
