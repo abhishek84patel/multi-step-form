@@ -36,84 +36,84 @@ const carsData = [
     },
     {
         "Name": "Honda",
-        "image": "/formImage/honda.png",
+        "image": "formImage/honda.png",
         "brand": "Honda",
         "model": ["Civic", "Accord", "CR-V", "Pilot"],
         "variant": ["LX", "EX", "Touring"]
     },
     {
         "Name": "Hyundai",
-        "image": "/formImage/hyundai.png",
+        "image": "formImage/hyundai.png",
         "brand": "Hyundai",
         "model": ["Elantra", "Sonata", "Tucson", "Santa Fe"],
         "variant": ["SE", "SEL", "Limited"]
     },
     {
         "Name": "Jeep",
-        "image": "/formImage/jeep.png",
+        "image": "formImage/jeep.png",
         "brand": "Jeep",
         "model": ["Compass", "Cherokee", "Wrangler", "Renegade"],
         "variant": ["Sport", "Latitude", "Limited"]
     },
     {
         "Name": "Kia",
-        "image": "/formImage/kia.png",
+        "image": "formImage/kia.png",
         "brand": "Kia",
         "model": ["Seltos", "Sonet", "Carnival", "Sorento"],
         "variant": ["LX", "EX", "SX"]
     },
     {
         "Name": "Mahindra",
-        "image": "/formImage/mahindra.png",
+        "image": "formImage/mahindra.png",
         "brand": "Mahindra",
         "model": ["Thar", "Scorpio", "XUV500", "Bolero"],
         "variant": ["LX", "VX", "ZX"]
     },
     {
         "Name": "Maruti Suzuki",
-        "image": "/formImage/maruti suzuki.png",
+        "image": "formImage/maruti suzuki.png",
         "brand": "Maruti Suzuki",
         "model": ["Swift", "Baleno", "Alto", "Vitara Brezza"],
         "variant": ["LXI", "VXI", "ZXI"]
     },
     {
         "Name": "Nissan",
-        "image": "/formImage/nissan.png",
+        "image": "formImage/nissan.png",
         "brand": "Nissan",
         "model": ["Altima", "Maxima", "Rogue", "Sentra"],
         "variant": ["S", "SV", "SL"]
     },
     {
         "Name": "Renault",
-        "image": "/formImage/renault.png",
+        "image": "formImage/renault.png",
         "brand": "Renault",
         "model": ["Duster", "Kwid", "Triber", "Captur"],
         "variant": ["RXE", "RXL", "RXT"]
     },
     {
         "Name": "Skoda",
-        "image": "/formImage/skoda.png",
+        "image": "formImage/skoda.png",
         "brand": "Skoda",
         "model": ["Octavia", "Superb", "Karoq", "Rapid"],
         "variant": ["Style", "L&K", "Sportline"]
     },
     {
         "Name": "Tata",
-        "image": "/formImage/tata.png",
+        "image": "formImage/tata.png",
         "brand": "Tata",
         "model": ["Nexon", "Harrier", "Tiago", "Altroz"],
         "variant": ["XE", "XT", "XZ"]
     },
     {
         "Name": "Toyota",
-        "image": "/formImage/toyota.png",
+        "image": "formImage/toyota.png",
         "brand": "Toyota",
         "model": ["Corolla", "Camry", "RAV4", "Highlander"],
         "variant": ["LE", "XLE", "Limited"]
     },
     {
         "Name": "Volkswagen",
-        "image": "/formImage/volkswagen.png",
+        "image": "formImage/volkswagen.png",
         "brand": "Volkswagen",
         "model": ["Polo", "Vento", "Tiguan", "Passat"],
         "variant": ["Trendline", "Comfortline", "Highline"]
