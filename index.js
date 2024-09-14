@@ -135,8 +135,8 @@ let formData = {
 };
 function createBrandGrid() {
     const brandGrid = document.getElementById("brand-grid");
-    brandGrid.innerHTML=''
-    carsData.forEach((car, index )=> {
+    brandGrid.innerHTML = ''
+    carsData.forEach((car, index) => {
         // Create a div for each brand item
         const brandItem = document.createElement("div");
         brandItem.classList.add("brand-item");
@@ -157,7 +157,7 @@ function createBrandGrid() {
 }
 
 window.onload = createBrandGrid;
-function selectBrand(brandName,index) {
+function selectBrand(brandName, index) {
     formData.brand = brandName;
     document.getElementById("selected-brand").innerText = brandName;
 
@@ -176,20 +176,20 @@ function selectBrand(brandName,index) {
     //     // Add more brands and models here
     // };
     carsData[index].model.forEach(carModel => {
-      
-       console.log(carModel)
-       const modelItem = document.createElement('div');
-       modelItem.classList.add('model-item');
-       modelItem.innerText = carModel;
-       modelItem.onclick = () => selectModel(carModel,index);
-       modelGrid.appendChild(modelItem);
-      });
-    
+
+        console.log(carModel)
+        const modelItem = document.createElement('div');
+        modelItem.classList.add('model-item');
+        modelItem.innerText = carModel;
+        modelItem.onclick = () => selectModel(carModel, index);
+        modelGrid.appendChild(modelItem);
+    });
+
 }
 
 // Function to handle model selection
-function selectModel(modelName,index) {
-    console.log(modelName)
+function selectModel(modelName, index) {
+
     formData.model = modelName;
     document.getElementById("selected-model").innerText = modelName;
 
@@ -212,34 +212,64 @@ function selectModel(modelName,index) {
         const variantItem = document.createElement('div');
         variantItem.classList.add('variant-item');
         variantItem.innerText = variant;
-        variantItem.onclick = () => selectVariant(variant);
+
+        variantItem.onclick = () => {
+            selectVariant(variantItem); // Pass the clicked element to `selectVariant`
+        };
+
         variantGrid.appendChild(variantItem);
     });
+
+
+
 }
 
 // Function to handle variant selection
-function selectVariant(variantName) {
-    formData.variant = variantName;
-    document.getElementById("selected-variant").innerText = variantName;
+function selectVariant(selectedItem) {
+    formData.variant=selectedItem;
+    // Remove 'selected-variant' class from all variant items
+    const allVariants = document.querySelectorAll('.variant-item');
+    allVariants.forEach(variant => variant.classList.remove('selected-variant'));
 
-    // Variant selected, proceed to fuel type
-}
+    // Add 'selected-variant' class to the clicked variant
+    selectedItem.classList.add('selected-variant');
 
-// Function to handle fuel type selection
-function selectFuelType() {
-    formData.fuelType = document.querySelector('input[name="fuel-type"]:checked').value;
+    // Show fuel container and enable fuel type selection
+    const fuelContainer = document.querySelector('.fuel-container');
+    fuelContainer.style.display = 'block'; // Show the fuel container
 
-    const selectedFuel = document.querySelector('input[name="fuel-type"]:checked').value;
-    document.getElementById("selected-fuel").innerText = selectedFuel;
+    // Enable fuel type selection only when a variant is selected
+    const fuelOptions = document.querySelectorAll('.fuel-switcher input');
+    fuelOptions.forEach(option => option.disabled = false);
+    document.querySelectorAll('input[name="fuel-type"]').forEach((input) => {
+        input.addEventListener('change', () => {
+            // Check if the current radio button is checked
+            if (input.checked) {
+                // Proceed to the next form step
+                goToNextFormStep('variant-selection-form', 'ownership-selection-form');
+            }
+        });
+    });
 
-    // Hide the variant selection form
-    document.getElementById("variant-selection-form").style.display = "none";
-
-    // Show the ownership selection form
-    document.getElementById("ownership-selection-form").style.display = "block";
 }
 
 // Function to handle ownership selection
+
+document.querySelectorAll('input[name="ownership"]').forEach((input) => {
+    input.addEventListener('change', () => {
+        // Check if the current radio button is checked
+        if (input.checked) {
+            formData.ownership = input.value
+            // Proceed to the next form step
+            goToNextFormStep('ownership-selection-form', 'kilometer-selection-form');
+        }
+    });
+});
+function updateKilometersDisplay(value) {
+    const displayElement = document.getElementById('kilometers-display');
+    displayElement.textContent = value;
+    formData.kilometersDriven = value;
+}
 function selectOwnership() {
     formData.ownership = document.querySelector('input[name="ownership"]:checked').value;
 
@@ -272,20 +302,18 @@ function selectKilometers() {
     // Show the location selection form
     document.getElementById("location-selection-form").style.display = "block";
 }
-
+document.querySelectorAll('input[name="location"]').forEach((input) => {
+    input.addEventListener('change', () => {
+        // Check if the current radio button is checked
+        if (input.checked) {
+            formData.ownership = input.value
+            // Proceed to the next form step
+            goToNextFormStep('location-selection-form', 'year-selection-form');
+        }
+    });
+});
 // Function to handle location selection
-function selectLocation() {
-    formData.location = document.querySelector('input[name="location"]:checked').value;
 
-    const selectedLocation = document.querySelector('input[name="location"]:checked').value;
-    document.getElementById("selected-location").innerText = selectedLocation;
-
-    // Hide the location selection form
-    document.getElementById("location-selection-form").style.display = "none";
-
-    // Show the registration year form
-    document.getElementById("year-selection-form").style.display = "block";
-}
 function selectYear(year) {
     formData.registrationYear = year;
     console.log("Form Data:", formData);
@@ -377,4 +405,22 @@ function removeImage(event, boxId) {
     }
 }
 
+function goToNextFormStep(currentFormId, nextFormId) {
+    // Hide the current form
+    document.getElementById(currentFormId).style.display = 'none';
 
+    // Show the next form
+    document.getElementById(nextFormId).style.display = 'block';
+}
+function goBack(prevFormId, currentFormId) {
+    // Logic to navigate back to the previous form step
+    document.getElementById(prevFormId).style.display = 'block';
+    document.getElementById(currentFormId).style.display = 'none';
+}
+function goToNextFormStep(currentFormId, nextFormId) {
+    // Hide the current form
+    document.getElementById(currentFormId).style.display = 'none';
+
+    // Show the next form
+    document.getElementById(nextFormId).style.display = 'block';
+}

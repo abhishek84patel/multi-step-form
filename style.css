@@ -1,6 +1,6 @@
 .form-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f5f5f5;
@@ -72,6 +72,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   button:hover {
@@ -133,6 +134,29 @@
   }
   
   
+  .variant-item {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .variant-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .selected-variant {
+    border-color: green;
+    background-color: #d4f0d4; /* Green background for the selected item */
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
   
   
   

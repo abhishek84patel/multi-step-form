@@ -17,11 +17,7 @@
       <div class="brand-selection">
         <input type="text" placeholder="Search" class="search-input" />
         <div class="brand-grid" id="brand-grid">
-          <div class="brand-item" onclick="selectBrand('Maruti')"><img src="http://www.carin30.com/admin/brand/hyundai.png" width="80" alt=""></div>
-          <div class="brand-item" onclick="selectBrand('Hyundai')">Hyundai</div>
-          <div class="brand-item" onclick="selectBrand('Honda')">Honda</div>
-          <div class="brand-item" onclick="selectBrand('Tata')">Tata</div>
-          <div class="brand-item" onclick="selectBrand('Toyota')">Toyota</div>
+
           <!-- Add more brands here -->
         </div>
       </div>
@@ -33,6 +29,8 @@
       <div class="model-selection">
         <div id="model-grid" class="model-grid"></div>
       </div>
+      <button onclick="goBack('brand-selection-form', 'model-selection-form')">Back</button> <!-- Back Button -->
+
     </div>
 
     <!-- Third Form: Select Variant and Fuel Type (Appears after selecting model) -->
@@ -43,36 +41,41 @@
       </div>
 
       <!-- Fuel Type Switcher -->
-      <h3>Select Fuel Type</h3>
-      <div class="fuel-switcher">
-        <label><input type="radio" name="fuel-type" value="Petrol" checked /> Petrol</label>
-        <label><input type="radio" name="fuel-type" value="Diesel" /> Diesel</label>
-        <label><input type="radio" name="fuel-type" value="CNG" /> CNG</label>
-        <label><input type="radio" name="fuel-type" value="Electric" /> Electric</label>
-      </div>
+      <div class="fuel-container" style="display: none;">
 
-      <!-- Button to continue -->
-      <button id="continue-to-ownership" onclick="selectFuelType()">Continue</button>
+
+        <h3>Select Fuel Type</h3>
+        <div class="fuel-switcher">
+          <label><input type="radio" name="fuel-type" value="Petrol" /> Petrol</label>
+          <label><input type="radio" name="fuel-type" value="Diesel" /> Diesel</label>
+          <label><input type="radio" name="fuel-type" value="CNG" /> CNG</label>
+          <label><input type="radio" name="fuel-type" value="Electric" /> Electric</label>
+        </div>
+      </div>
+      <button onclick="goBack('model-selection-form', 'variant-selection-form')">Back</button>
     </div>
 
     <!-- Fourth Form: Select Ownership (Appears after selecting fuel type) -->
     <div id="ownership-selection-form" class="form-step" style="display: none;">
       <h2>Select Ownership</h2>
       <div class="ownership-selection">
-        <label><input type="radio" name="ownership" value="First Owner" checked /> First Owner</label>
+        <label><input type="radio" name="ownership" value="First Owner" /> First Owner</label>
         <label><input type="radio" name="ownership" value="Second Owner" /> Second Owner</label>
         <label><input type="radio" name="ownership" value="Third Owner" /> Third Owner</label>
         <label><input type="radio" name="ownership" value="More than Third Owner" /> More than Third Owner</label>
       </div>
-
-      <!-- Button to continue -->
-      <button id="continue-to-year" onclick="selectOwnership()">Continue</button>
+      <button onclick="goBack('variant-selection-form', 'ownership-selection-form')">Back</button>
+    
     </div>
     <!-- Kilometers Driven Form -->
     <div id="kilometer-selection-form" class="form-step" style="display: none;">
+      <h2>Enter Kilometers Driven</h2><input type="range" id="kilometers-driven" min="0" max="100000" step="1000"
+        oninput="updateKilometersDisplay(this.value)" />
 
-      <h2>Enter Kilometers Driven</h2>
-      <input type="number" id="kilometers-driven" placeholder="Enter kilometers" />
+      <!-- Display the selected value -->
+      <span id="kilometers-display">0</span> km
+      <br>
+      <button onclick="goBack('ownership-selection-form', 'kilometer-selection-form')">Back</button>
       <button id="continue-to-location" onclick="selectKilometers()">Continue</button>
     </div>
 
@@ -81,13 +84,13 @@
       <p>Kilometers Driven: <span id="selected-kilometers"></span></p>
       <h2>Select Your Location</h2>
       <div class="location-selection">
-        <label><input type="radio" name="location" value="New Delhi" checked /> New Delhi</label>
+        <label><input type="radio" name="location" value="New Delhi" /> New Delhi</label>
         <label><input type="radio" name="location" value="Mumbai" /> Mumbai</label>
         <label><input type="radio" name="location" value="Bangalore" /> Bangalore</label>
         <label><input type="radio" name="location" value="Chennai" /> Chennai</label>
         <!-- Add more locations as needed -->
       </div>
-      <button id="continue-to-year" onclick="selectLocation()">Continue</button>
+      <button onclick="goBack('kilometer-selection-form', 'location-selection-form')">Back</button>
     </div>
     <!-- Fifth Form: Select Registration Year (Appears after selecting ownership) -->
     <!-- Year Selection Form -->
